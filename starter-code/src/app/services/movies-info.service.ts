@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MoviesInfoService {
-  movies: Array<object>;
+  movies: Array<any>;
 
   constructor() {
     this.movies = [
@@ -25,7 +25,9 @@ export class MoviesInfoService {
           'William Sadler',
           'Clancy Brown',
           'Gil Bellows'
-        ]
+        ],
+        hours: ['Wednesday 19:30, 22:30', 'Tuesday 14:30, 20:30'],
+        room: 1
       },
       {
         id: 2,
@@ -44,7 +46,9 @@ export class MoviesInfoService {
           'Richard S. Castellano',
           'Robert Duvall',
           'Sterling Hayden'
-        ]
+        ],
+        hours: ['Wednesday 19:30, 22:30', 'Tuesday 14:30, 20:30'],
+        room: 1
       },
       {
         id: 3,
@@ -63,7 +67,9 @@ export class MoviesInfoService {
           'Robert De Niro',
           'John Cazale',
           'Talia Shire'
-        ]
+        ],
+        hours: ['Wednesday 19:30, 22:30', 'Tuesday 14:30, 20:30'],
+        room: 1
       },
       {
         id: 4,
@@ -82,7 +88,9 @@ export class MoviesInfoService {
           'Michael Caine',
           'Maggie Gyllenhaal',
           'Gary Oldman'
-        ]
+        ],
+        hours: ['Wednesday 19:30, 22:30', 'Tuesday 14:30, 20:30'],
+        room: 1
       },
       {
         id: 5,
@@ -101,8 +109,20 @@ export class MoviesInfoService {
           'Caroline Goodall',
           'Jonathan Sagall',
           'Embeth Davidtz'
-        ]
+        ],
+        hours: ['Wednesday 19:30, 22:30', 'Tuesday 14:30, 20:30'],
+        room: 1
       }
     ];
+  }
+
+  getMovies(): Array<object> {
+    return this.movies;
+  }
+
+  getMovie(id): any {
+    return this.movies.find(element => {
+      return element.id === id;
+    });
   }
 }
