@@ -9,7 +9,7 @@ import { MoviesInfoService } from '../../services/movies-info.service';
   styleUrls: ['./movie-display.component.css']
 })
 export class MovieDisplayComponent implements OnInit {
-  movieId: Number;
+  movieId: number;
   movie: any;
 
   constructor(
@@ -17,11 +17,10 @@ export class MovieDisplayComponent implements OnInit {
     private moviesInfoService: MoviesInfoService
   ) {}
 
-  // This doesn't work! Tried several ways, couldn't figure it out:
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.movieId = params.id;
-      this.movie = this.moviesInfoService.getMovie(params.id);
-    });
+    this.route.params.subscribe(
+      params => (this.movieId = Number(params['id']))
+    );
+    this.movie = this.moviesInfoService.getMovie(this.movieId);
   }
 }
