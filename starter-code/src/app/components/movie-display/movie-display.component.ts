@@ -21,6 +21,7 @@ export class MovieDisplayComponent implements OnInit {
     this.route.params.subscribe(
       params => (this.movieId = Number(params['id']))
     );
+    // If I comment out the line below, the line above stops working (this.movieId doesn't get set). WHY????!!!???
     this.movie = this.moviesInfoService.getMovie(this.movieId);
   }
 }
